@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
-import torch
 from torch.utils.data import DataLoader, Subset
 from torchvision import datasets, transforms
 
