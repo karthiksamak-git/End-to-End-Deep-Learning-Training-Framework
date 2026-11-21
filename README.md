@@ -197,6 +197,9 @@ npm run build && npm run start
 npm run lint
 ```
 
+Next.js is pinned to **15.5.7** and React to **19.0.3** — the releases patched for
+CVE-2025-66478 / CVE-2025-55182 (Vercel refuses to build vulnerable versions).
+
 Pages: `/` overview · `/experiments` training curves and run comparison ·
 `/cross-validation` per-fold metrics · `/hpo` trial history and parameter
 importance · `/error-analysis` interactive confusion matrix, gallery, calibration ·
