@@ -1,5 +1,9 @@
 # dl-train-framework
 
+[![CI](https://github.com/karthiksamak-git/End-to-End-Deep-Learning-Training-Framework/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/karthiksamak-git/End-to-End-Deep-Learning-Training-Framework/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Live demo](https://img.shields.io/badge/demo-live-6d5efc.svg)](https://dl-train-framework.vercel.app)
+
 End-to-end deep learning training framework in PyTorch — from raw data to a model
 running in a browser. Every number in this README comes from a run that actually
 executed on CPU; the JSON artifacts those runs produced are committed under
