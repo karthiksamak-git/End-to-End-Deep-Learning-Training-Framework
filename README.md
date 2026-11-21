@@ -220,6 +220,11 @@ same origin as the app.
 
 ![Production playground](docs/screenshots/production-playground.png)
 
+Dark mode is a first-class theme (class-based Tailwind, respecting
+`prefers-color-scheme` and persisted in `localStorage`):
+
+![Dark mode](docs/screenshots/overview-dark.png)
+
 `prebuild` copies the `onnxruntime-web` WASM runtime into `web/public/ort/` so it is
 served from the app's own origin (no CDN). The 1.87 MB model lives in
 `web/public/models/model.onnx`.
