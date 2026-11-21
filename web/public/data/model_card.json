@@ -1,0 +1,105 @@
+{
+  "name": "image_cnn",
+  "generated_at": "2026-11-21T08:04:22+00:00",
+  "git_hash": "2496d3d",
+  "seed": 42,
+  "device": {
+    "device": "cpu",
+    "kind": "cpu",
+    "amp_dtype": null,
+    "supports_amp": false,
+    "notes": "CPU only run"
+  },
+  "task": "image",
+  "dataset": {
+    "name": "Fashion-MNIST",
+    "train_size": 10000,
+    "val_size": 2000,
+    "test_size": 2000,
+    "image_mean": 0.287300419127138,
+    "image_std": 0.35335019619485425,
+    "preprocessing": "ToTensor -> Normalize(mean,std); training split additionally gets RandomRotation(10) + RandomAffine(translate=0.1)"
+  },
+  "architecture": {
+    "class": "ResNetSmall",
+    "parameters_total": 490162,
+    "size_mb_fp32": 1.87,
+    "config": {
+      "name": "cnn",
+      "hidden_sizes": [
+        64,
+        32
+      ],
+      "activation": "relu",
+      "dropout": 0.0798695128633439,
+      "batchnorm": true,
+      "width": 24,
+      "depth": 2
+    }
+  },
+  "training": {
+    "epochs_run": 6,
+    "duration_sec": 284.7,
+    "optimizer": "adamw",
+    "lr": 0.0010823551668255817,
+    "weight_decay": 0.007851759613930136,
+    "scheduler": "onecycle",
+    "batch_size": 32,
+    "amp": null
+  },
+  "metrics": {
+    "accuracy": 0.8785,
+    "f1_macro": 0.8757194237791145,
+    "precision_macro": 0.8769327782595686,
+    "recall_macro": 0.8784999999999998,
+    "roc_auc": 0.9883272222222221,
+    "log_loss": 0.3443529908099846
+  },
+  "onnx": {
+    "path": "web/public/models/model.onnx",
+    "size_bytes": 1965768,
+    "size_mb": 1.875,
+    "under_10mb": true,
+    "opset": 17,
+    "input_name": "input",
+    "output_name": "logits",
+    "input_shape": [
+      1,
+      28,
+      28
+    ],
+    "dynamic_batch": true
+  },
+  "onnx_parity": {
+    "max_abs_diff": 1.9073486328125e-06,
+    "atol": 0.0001,
+    "passed": true,
+    "inputs_checked": 12,
+    "sample_logits": [
+      1.090064287185669,
+      -1.6914138793945312,
+      -0.9512417316436768,
+      -1.0374337434768677,
+      -3.2117207050323486
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "class_names": [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle boot"
+  ],
+  "limitations": [
+    "Demo runs use subsets of Fashion-MNIST so the whole pipeline finishes in minutes on CPU; metrics are therefore not state-of-the-art.",
+    "The browser playground runs the ONNX model with WASM on the client: no server-side inference, no uploads."
+  ]
+}

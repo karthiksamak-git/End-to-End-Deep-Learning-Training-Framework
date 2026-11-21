@@ -10,9 +10,9 @@ venv/
 build/
 dist/
 # ---- Experiment outputs (only summary JSON is copied into web/public) ----
-runs/
-artifacts/
-data/
+/runs/
+/artifacts/
+/data/
 *.pt
 *.pth
 *.ckpt

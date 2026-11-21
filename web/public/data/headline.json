@@ -1,0 +1,9 @@
+{
+  "test_accuracy": 0.8785,
+  "test_f1_macro": 0.8757194237791145,
+  "cv_accuracy_mean": 0.971883247942866,
+  "cv_accuracy_std": 0.006552513440520631,
+  "hpo_best_value": 0.764708,
+  "hpo_metric": "val_f1",
+  "n_runs": 2
+}

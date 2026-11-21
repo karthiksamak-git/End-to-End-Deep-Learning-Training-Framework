@@ -1,0 +1,179 @@
+{
+  "study_name": "fashion_cnn_hpo",
+  "direction": "maximize",
+  "metric": "val_f1",
+  "n_trials": 8,
+  "n_completed": 5,
+  "n_pruned": 3,
+  "best_value": 0.764708,
+  "best_params": {
+    "lr": 0.0010823551668255817,
+    "weight_decay": 0.007851759613930136,
+    "dropout": 0.0798695128633439,
+    "width": 24,
+    "batch_size": 32,
+    "optimizer": "adamw"
+  },
+  "best_trial": 3,
+  "param_importance": {
+    "weight_decay": 0.3392969419961644,
+    "optimizer": 0.3153511610334701,
+    "dropout": 0.1638805475172634,
+    "lr": 0.1222900695526424,
+    "width": 0.05918127990045972,
+    "batch_size": 0.0
+  },
+  "search_space": {
+    "lr": [
+      0.0003,
+      0.005
+    ],
+    "weight_decay": [
+      0.0,
+      0.01
+    ],
+    "dropout": [
+      0.0,
+      0.4
+    ],
+    "width": [
+      16,
+      32
+    ],
+    "batch_size": [
+      32,
+      64
+    ],
+    "optimizer": [
+      "adamw",
+      "sgd"
+    ]
+  },
+  "epochs_per_trial": 3,
+  "subset_train": 3000,
+  "subset_val": 1000,
+  "seed": 42,
+  "trials": [
+    {
+      "number": 0,
+      "state": "complete",
+      "value": 0.122189,
+      "params": {
+        "lr": 0.0008605034792033113,
+        "weight_decay": 0.009507143064099163,
+        "dropout": 0.292797576724562,
+        "width": 24,
+        "batch_size": 32,
+        "optimizer": "sgd"
+      },
+      "duration_sec": 37.55,
+      "started_at": "2026-11-21T07:37:14.568437"
+    },
+    {
+      "number": 1,
+      "state": "complete",
+      "value": 0.533891,
+      "params": {
+        "lr": 0.0016277694005889425,
+        "weight_decay": 0.007080725777960455,
+        "dropout": 0.008233797718320978,
+        "width": 32,
+        "batch_size": 32,
+        "optimizer": "sgd"
+      },
+      "duration_sec": 56.13,
+      "started_at": "2026-11-21T07:37:52.446074"
+    },
+    {
+      "number": 2,
+      "state": "pruned",
+      "value": 0.058135,
+      "params": {
+        "lr": 0.0007060886961125453,
+        "weight_decay": 0.005247564316322379,
+        "dropout": 0.17277800745684632,
+        "width": 16,
+        "batch_size": 32,
+        "optimizer": "sgd"
+      },
+      "duration_sec": 7.82,
+      "started_at": "2026-11-21T07:38:48.719133"
+    },
+    {
+      "number": 3,
+      "state": "complete",
+      "value": 0.764708,
+      "params": {
+        "lr": 0.0010823551668255817,
+        "weight_decay": 0.007851759613930136,
+        "dropout": 0.0798695128633439,
+        "width": 24,
+        "batch_size": 32,
+        "optimizer": "adamw"
+      },
+      "duration_sec": 35.92,
+      "started_at": "2026-11-21T07:38:56.732354"
+    },
+    {
+      "number": 4,
+      "state": "complete",
+      "value": 0.666454,
+      "params": {
+        "lr": 0.00036025039217688976,
+        "weight_decay": 0.009488855372533333,
+        "dropout": 0.38625281322982374,
+        "width": 32,
+        "batch_size": 32,
+        "optimizer": "adamw"
+      },
+      "duration_sec": 64.49,
+      "started_at": "2026-11-21T07:39:32.953569"
+    },
+    {
+      "number": 5,
+      "state": "pruned",
+      "value": 0.037588,
+      "params": {
+        "lr": 0.0004228959435391997,
+        "weight_decay": 0.004951769101112702,
+        "dropout": 0.013755408446087358,
+        "width": 32,
+        "batch_size": 64,
+        "optimizer": "sgd"
+      },
+      "duration_sec": 18.88,
+      "started_at": "2026-11-21T07:40:37.822007"
+    },
+    {
+      "number": 6,
+      "state": "pruned",
+      "value": 0.076035,
+      "params": {
+        "lr": 0.0013967495044111178,
+        "weight_decay": 0.0018485445552552705,
+        "dropout": 0.38783385110582347,
+        "width": 32,
+        "batch_size": 32,
+        "optimizer": "sgd"
+      },
+      "duration_sec": 19.26,
+      "started_at": "2026-11-21T07:40:56.844167"
+    },
+    {
+      "number": 7,
+      "state": "complete",
+      "value": 0.7468,
+      "params": {
+        "lr": 0.0003848094313674959,
+        "weight_decay": 0.001959828624191452,
+        "dropout": 0.018090915564215226,
+        "width": 16,
+        "batch_size": 32,
+        "optimizer": "adamw"
+      },
+      "duration_sec": 20.61,
+      "started_at": "2026-11-21T07:41:16.445597"
+    }
+  ],
+  "generated_at": "2026-11-21T07:41:37+00:00"
+}
