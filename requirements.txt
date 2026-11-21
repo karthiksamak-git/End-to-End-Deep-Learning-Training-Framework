@@ -1,0 +1,17 @@
+# dl-train-framework — pinned dependency set (CPU wheels by default).
+# Install with:  make setup   (uses the PyTorch CPU index; swap for the CUDA index
+# below if you have an NVIDIA GPU:  --index-url https://download.pytorch.org/whl/cu124)
+torch==2.5.1
+torchvision==0.20.1
+numpy==1.26.4
+pandas==2.2.3
+scikit-learn==1.5.2
+optuna==4.1.0
+PyYAML==6.0.2
+matplotlib==3.9.2
+seaborn==0.13.2
+onnx==1.17.0
+onnxruntime==1.20.1
+pytest==8.3.3
+ruff==0.8.4
+tqdm==4.67.0

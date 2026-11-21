@@ -1,0 +1,51 @@
+name: image_cnn
+task: image
+seed: 42
+device: auto
+
+data:
+  name: fashion_mnist
+  val_fraction: 0.2
+  test_fraction: 0.0   # the official Fashion-MNIST test split is the held-out set
+  batch_size: 64
+  eval_batch_size: 512
+  num_workers: 0
+  # CPU budget: full Fashion-MNIST would take far longer than the 15 minute target.
+  subset_train: 10000
+  subset_val: 2000
+  subset_test: 2000
+  augmentation: true
+  rotation_degrees: 10.0
+  translate: 0.1
+  download: true
+
+model:
+  name: cnn
+  width: 32
+  depth: 2
+  dropout: 0.1
+
+optim:
+  optimizer: adamw
+  lr: 0.002
+  weight_decay: 0.0001
+  momentum: 0.9
+  scheduler: onecycle
+  grad_clip: 1.0
+
+train:
+  epochs: 6
+  amp: true
+  deterministic: true
+  early_stopping_patience: 3
+  early_stopping_min_delta: 0.0005
+  monitor: val_loss
+  log_every_n_steps: 0
+  resume: null
+
+paths:
+  runs_dir: runs
+  data_dir: data
+  artifacts_dir: artifacts
+  web_data_dir: web/public/data
+  web_model_dir: web/public/models

@@ -1,0 +1,55 @@
+name: tabular_mlp
+task: tabular
+seed: 42
+device: auto
+
+data:
+  name: breast_cancer
+  val_fraction: 0.15
+  test_fraction: 0.15
+  batch_size: 64
+  eval_batch_size: 256
+  num_workers: 0
+  subset_train: null
+  subset_val: null
+  subset_test: null
+  download: true
+
+model:
+  name: mlp
+  hidden_sizes: [64, 32]
+  activation: relu
+  dropout: 0.2
+  batchnorm: true
+
+optim:
+  optimizer: adamw
+  lr: 0.001
+  weight_decay: 0.0001
+  momentum: 0.9
+  scheduler: cosine
+  step_size: 10
+  gamma: 0.5
+  grad_clip: 1.0
+
+train:
+  epochs: 40
+  amp: true
+  deterministic: true
+  early_stopping_patience: 8
+  early_stopping_min_delta: 0.0001
+  monitor: val_loss
+  log_every_n_steps: 0
+  resume: null
+
+cv:
+  n_splits: 5
+  epochs: 30
+  shuffle: true
+
+paths:
+  runs_dir: runs
+  data_dir: data
+  artifacts_dir: artifacts
+  web_data_dir: web/public/data
+  web_model_dir: web/public/models

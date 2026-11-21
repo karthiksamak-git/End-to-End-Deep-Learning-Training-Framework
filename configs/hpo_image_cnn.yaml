@@ -1,0 +1,66 @@
+name: hpo_image_cnn
+task: image
+seed: 42
+device: auto
+
+data:
+  name: fashion_mnist
+  val_fraction: 0.2
+  test_fraction: 0.0
+  batch_size: 64
+  eval_batch_size: 512
+  num_workers: 0
+  subset_train: 3000
+  subset_val: 1000
+  subset_test: null
+  augmentation: true
+  rotation_degrees: 10.0
+  translate: 0.1
+  download: true
+
+model:
+  name: cnn
+  width: 32
+  depth: 2
+  dropout: 0.1
+
+optim:
+  optimizer: adamw
+  lr: 0.002
+  weight_decay: 0.0001
+  momentum: 0.9
+  scheduler: onecycle
+  grad_clip: 1.0
+
+train:
+  epochs: 3
+  amp: true
+  deterministic: true
+  early_stopping_patience: 0
+  early_stopping_min_delta: 0.0001
+  monitor: val_loss
+
+hpo:
+  n_trials: 8
+  timeout_seconds: null
+  study_name: fashion_cnn_hpo
+  direction: maximize
+  metric: val_f1
+  subset_train: 3000
+  subset_val: 1000
+  epochs: 3
+  pruner_startup_trials: 2
+  search_space:
+    lr: [0.0003, 0.005]
+    weight_decay: [0.0, 0.01]
+    dropout: [0.0, 0.4]
+    width: [16, 32]
+    batch_size: [32, 64]
+    optimizer: [adamw, sgd]
+
+paths:
+  runs_dir: runs
+  data_dir: data
+  artifacts_dir: artifacts
+  web_data_dir: web/public/data
+  web_model_dir: web/public/models

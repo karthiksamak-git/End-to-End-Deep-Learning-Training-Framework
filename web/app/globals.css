@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-ink-50 text-ink-900 antialiased dark:bg-ink-950 dark:text-ink-100;
+    background-image: radial-gradient(
+        60rem 30rem at 110% -10%,
+        rgba(99, 102, 241, 0.14),
+        transparent
+      ),
+      radial-gradient(50rem 25rem at -10% 10%, rgba(16, 185, 129, 0.1), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-indigo-200 text-ink-900 dark:bg-indigo-500/40 dark:text-white;
+  }
+}
+
+@layer components {
+  .muted {
+    @apply text-sm text-ink-700/70 dark:text-ink-100/60;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-indigo-600 text-white hover:bg-indigo-500;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink-200/80 bg-white/70 hover:bg-ink-100 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-ink-200/80 px-2.5 py-1 text-xs dark:border-white/10;
+  }
+}

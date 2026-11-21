@@ -1,0 +1,44 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+# ---- Experiment outputs (only summary JSON is copied into web/public) ----
+runs/
+artifacts/
+data/
+*.pt
+*.pth
+*.ckpt
+# ---- Secrets / local env ----
+.env
+.env.*
+!.env.example
+.vercel/
+# ---- Node / Next.js ----
+node_modules/
+.next/
+out/
+web/.next/
+web/out/
+web/node_modules/
+npm-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+next-env.d.ts
+# ---- OS / editor ----
+.DS_Store
+.idea/
+.vscode/
+# ---- Local scratch ----
+PROGRESS.md
+
+# onnxruntime-web runtime copied at build time
+web/public/ort/
+*.log
