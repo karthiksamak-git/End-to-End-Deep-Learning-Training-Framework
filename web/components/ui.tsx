@@ -9,7 +9,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-xl border border-ink-200/80 bg-white/85 p-5 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/[0.04] ${className}`}
+      className={`min-w-0 rounded-xl border border-ink-200/80 bg-white/85 p-5 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/[0.04] ${className}`}
     >
       {children}
     </div>
@@ -126,7 +126,7 @@ export function DataTable({
   minWidth?: number;
 }) {
   return (
-    <div className="overflow-x-auto">
+    <div className="max-w-full overflow-x-auto">
       <table className="w-full border-collapse text-sm" style={{ minWidth }}>
         {caption ? <caption className="muted mb-2 text-left">{caption}</caption> : null}
         <thead>

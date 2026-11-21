@@ -166,12 +166,12 @@ export default async function OverviewPage() {
             ) : (
               <ul className="space-y-3 text-sm">
                 {runs.map((run) => (
-                  <li key={run.id} className="flex items-center justify-between gap-3">
-                    <div>
-                      <p className="font-medium">{run.name}</p>
-                      <p className="muted font-mono text-xs">{run.id}</p>
+                  <li key={run.id} className="flex min-w-0 items-center justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="truncate font-medium">{run.name}</p>
+                      <p className="muted truncate font-mono text-xs">{run.id}</p>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex shrink-0 items-center gap-2">
                       <Badge tone={run.task === "image" ? "info" : "good"}>{run.task}</Badge>
                       <span className="text-xs tabular-nums">
                         {formatPct(run.test_metrics.accuracy)}
